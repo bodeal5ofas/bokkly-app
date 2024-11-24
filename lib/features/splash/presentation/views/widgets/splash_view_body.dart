@@ -1,8 +1,11 @@
+import 'package:bokkly_app/constant.dart';
+import 'package:bokkly_app/core/utils/app_routers.dart';
 import 'package:bokkly_app/core/utils/assets.dart';
 import 'package:bokkly_app/features/home/presentation/views/home_screen.dart';
 import 'package:bokkly_app/features/splash/presentation/views/widgets/slidable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -56,13 +59,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void navigateToHome() {
-    Future.delayed(
-      const Duration(
-        seconds: 3,
-      ),
-      () => Get.to(const HomeScreen(),
-          duration: const Duration(seconds: 1),
-          transition: Transition.downToUp),
-    );
+    Future.delayed(kAnimationTransation, () {
+      GoRouter.of(context).push(AppRouters.kHomeView);
+    }
+        // () => Get.to(() => const HomeScreen(),
+        //     duration: const Duration(seconds: 1),
+        //     transition: Transition.downToUp),
+        );
   }
 }
