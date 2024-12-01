@@ -1,6 +1,7 @@
 import 'package:bokkly_app/core/utils/styles.dart';
 import 'package:bokkly_app/features/home/presentation/views/widgets/best_seller_list_view.dart';
 import 'package:bokkly_app/features/search/presentation/views/widgets/custom_search_text_field.dart';
+import 'package:bokkly_app/features/search/presentation/views/widgets/search_list_view.dart';
 import 'package:flutter/material.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -18,13 +19,13 @@ class SearchViewBody extends StatelessWidget {
             height: 20,
           ),
           Text(
-            "Best Seller",
+            "Search Result",
             style: Styles.textStyle18,
           ),
           SizedBox(
             height: 20,
           ),
-          Expanded(child: BestSellerListView()),
+          Expanded(child: SearchListView()),
         ],
       ),
     );

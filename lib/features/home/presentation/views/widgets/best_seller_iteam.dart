@@ -15,14 +15,15 @@ class BestSellerIteam extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouters.kDetailsView,extra: bookModel);
+        GoRouter.of(context).push(AppRouters.kDetailsView, extra: bookModel);
       },
       child: SizedBox(
         height: 150,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-          FeatureBooksIteam(imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail??''),
+            FeatureBooksIteam(
+                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
             const SizedBox(
               width: 30,
             ),
@@ -32,7 +33,7 @@ class BestSellerIteam extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
-                    child:  Text(
+                    child: Text(
                       bookModel.volumeInfo.title!,
                       style: Styles.textStyle20,
                       maxLines: 2,
@@ -41,7 +42,7 @@ class BestSellerIteam extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    bookModel.volumeInfo.authors![0],
+                    bookModel.volumeInfo.authors?[0] ?? '',
                     style: Styles.textStyle18.copyWith(color: Colors.grey),
                   ),
                   const SizedBox(height: 5),
@@ -53,9 +54,12 @@ class BestSellerIteam extends StatelessWidget {
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
                       const Spacer(),
-                       Padding(
-                        padding:const EdgeInsets.only(right: 5),
-                        child: BookRating(count: bookModel.volumeInfo.pageCount!,rating: 0 ,),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 5),
+                        child: BookRating(
+                          count: bookModel.volumeInfo.pageCount!,
+                          rating: 0,
+                        ),
                       ),
                     ],
                   )
