@@ -1,3 +1,5 @@
+import 'package:bokkly_app/core/utils/styles.dart';
+import 'package:bokkly_app/features/home/presentation/views/widgets/best_seller_list_view.dart';
 import 'package:bokkly_app/features/search/presentation/views/widgets/custom_search_text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -7,10 +9,24 @@ class SearchViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 20),
-      child:  Column(children: [
-        CustomSearchTextField(),
-      ],),
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomSearchTextField(),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Best Seller",
+            style: Styles.textStyle18,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Expanded(child: BestSellerListView()),
+        ],
+      ),
     );
   }
 }

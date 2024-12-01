@@ -2,29 +2,30 @@ import 'package:bokkly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key});
-
+  const BookRating({super.key, required this.rating, required this.count});
+  final int rating;
+  final int count;
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return  Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(
+       const Icon(
           Icons.star,
           color: Colors.yellow,
         ),
-        SizedBox(
+       const SizedBox(
           width: 6.3,
         ),
         Text(
-          '4.8',
+          rating.toString(),
           style: Styles.textStyle18,
         ),
-        SizedBox(
+     const   SizedBox(
           width: 5,
         ),
         Text(
-          '(4028)',
+          '($count)',
           style: Styles.textStyle16,
         )
       ],
